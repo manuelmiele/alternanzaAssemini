@@ -6,14 +6,14 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import src.classes.Articolo;
 
-public class ArticoloDao {
+public class ArticoloDao extends BaseDao {
 
 	public ArticoloDao() {
 		super();
 	}
 
 	public List<Articolo> getAllArticoli (String query) {
-		Logger.info("Recupero tutti i ricoveri");
+		logger.info("Recupero tutti i ricoveri");
 		List<Articolo> articolo;
 
 		try {
@@ -48,7 +48,7 @@ public class ArticoloDao {
 	 
 	//ottieni generi e console
   
-  public List <String> getTipi() {
+  public List<Articolo> getTipi() {
 		try {
 		ResultSet rs = getDbm().performQuery("SELECT DISTINCT tipo FROM articolo");
 		} catch (SQLException e) {
@@ -75,7 +75,7 @@ public class ArticoloDao {
 		return getAllRicovero("select * from articolo where nome="+name+" OR nome LIKE '%"+name+"' OR nome LIKE '"+name+"%'");
 	}
 	public List <Articolo> getArticoloByTipo(String tipo) {
-		return getAllRicovero("select * from articolo where genere="+genere);
+		return getAllRicovero("select * from articolo where genere="+tipo);
 	}
 	public List <Articolo> getArticoloByPiattoforma(String piattaforma) {
 		return getAllRicovero("select * from articolo where console ="+piattaforma);
@@ -89,7 +89,7 @@ public class ArticoloDao {
 	
 	public void updateQuantity(int quantity) {
 		try {
-		ResultSet rs = getDbm().performQuery("UPDATE articolo SET quantita="+quantity);
+			getDbm().performQuery("UPDATE articolo SET quantita="+quantity);
 		} catch (SQLException e) {
 			logger.log(Level.SEVERE, "Errore nel recupero delle info ->" + e.getMessage());
 			
@@ -100,6 +100,4 @@ public class ArticoloDao {
 	
 	
 	}
-	
-}
 

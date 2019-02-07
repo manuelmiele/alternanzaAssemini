@@ -5,7 +5,7 @@ import java.util.logging.Level;
 import java.sql.ResultSet;
 import src.classes.Ordine;
 
-public class OrdineDao {
+public class OrdineDao extends BaseDao{
 
 	public OrdineDao() {
 		super();
@@ -15,9 +15,7 @@ public class OrdineDao {
 	public void setOrdine(java.sql.Timestamp time_stamp) {
 		
 		try {
-			
-			ResultSet rs = getDbm().performQuery("INSERT INTO ordini ('time_stamp') VALUES ("+time_stamp+")");
-			
+			getDbm().performQuery("INSERT INTO ordini ('time_stamp') VALUES ("+time_stamp+")");
 		} catch (SQLException e) {
 			
 		
@@ -31,9 +29,7 @@ public class OrdineDao {
 	public void setOrdine(java.sql.Timestamp time_stamp, int id_cliente) {
 		
 		try {
-			
-			ResultSet rs = getDbm().performQuery("INSERT INTO ordini ('time_stamp','id_cliente') VALUES ("+time_stamp+","+id_cliente+")");
-			
+			getDbm().performQuery("INSERT INTO ordini ('time_stamp','id_cliente') VALUES ("+time_stamp+","+id_cliente+")");
 		} catch (SQLException e) {
 			
 		

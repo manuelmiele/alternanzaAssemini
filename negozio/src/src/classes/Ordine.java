@@ -1,6 +1,5 @@
 package src.classes;
 
-import java.io.*;
 import java.util.*;
 
 public class Ordine{
