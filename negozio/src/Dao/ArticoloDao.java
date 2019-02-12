@@ -72,10 +72,10 @@ public class ArticoloDao extends BaseDao {
 	//ricerche
 		
 	public List <Articolo> getArticoloByName(String name) {
-		return getAllRicovero("select * from articolo where nome="+name+" OR nome LIKE '%"+name+"' OR nome LIKE '"+name+"%'");
+		return getAllArticoli("select * from articolo where nome="+name+" OR nome LIKE '%"+name+"' OR nome LIKE '"+name+"%'");
 	}
 	public List <Articolo> getArticoloByTipo(String tipo) {
-		return getAllRicovero("select * from articolo where genere="+tipo);
+		return getAllArticoli("select * from articolo where genere="+tipo);
 	}
 	public List <Articolo> getArticoloByPiattoforma(String piattaforma) {
 		return getAllRicovero("select * from articolo where console ="+piattaforma);
