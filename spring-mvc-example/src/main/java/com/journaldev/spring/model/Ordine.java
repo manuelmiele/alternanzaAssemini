@@ -1,4 +1,4 @@
-package org.alternanza.prova.classi;
+package com.journaldev.spring.model;
 
 import java.io.*;
 import java.util.*;
