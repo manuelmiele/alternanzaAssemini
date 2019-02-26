@@ -30,7 +30,7 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/getAllArticoli", method = RequestMethod.GET)
 	public String getAllArticoli(Locale locale, Model model) {
-		
+	
 		return homeService.getAllArticoli();
 	}
 	
