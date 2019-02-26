@@ -17,7 +17,7 @@ public class ArticoloServiceImpl implements ArticoloService{
 
 	public Articolo getArticolo(int id) {
 		
-	return dao.findById();
+	return dao.findById(id);
 		
 	}
 	
