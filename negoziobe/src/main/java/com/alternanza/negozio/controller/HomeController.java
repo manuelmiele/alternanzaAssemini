@@ -24,14 +24,20 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired
-	private HomeService homeService;
+	private ArticoloService articoloService;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/getAllArticoli", method = RequestMethod.GET)
-	public String getAllArticoli(Locale locale, Model model) {
-	
-		return homeService.getAllArticoli();
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public List<Articolo> getAll(Model model) {
+		return articoloService.getAll();
+	}
+	 
+	@RequestMapping(value = "/%d", method = RequestMethod.GET)
+	public Articolo getArticolo(@RequestParam("id") int id,Model model) {
+		return articoloService.getArticolo(id);
 	}
 	
+	
 }
+
