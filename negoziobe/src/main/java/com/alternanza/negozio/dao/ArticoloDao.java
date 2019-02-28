@@ -9,5 +9,5 @@ public interface ArticoloDao {
 
 	public List<Articolo> findAll() throws CtrlException;
 	public Articolo findById(int id) throws CtrlException;
-	
+	public List<Articolo> findbyName(String nome) throws CtrlException;
 }

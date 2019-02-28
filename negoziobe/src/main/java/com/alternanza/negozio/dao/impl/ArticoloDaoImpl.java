@@ -23,14 +23,15 @@ public class ArticoloDaoImpl implements ArticoloDao {
 		DatabaseManager db = null;
 		Connection conn=null;
 		ResultSet rs = null;
-		String query = "SELECT * FROM auto";
+		String query = "SELECT * FROM articoli";
 		try {
 			conn = db.getConnection();
 			Statement st = conn.createStatement();
 			rs = st.executeQuery(query);
-			ret = new ArrayList();
+			// ret = new ArrayList();
 			while (rs.next()) {
 				a = new Articolo();
+				a.setId(rs.getInt("int"));
 				a.setNome(rs.getString("nome"));
 				a.setPiattaforma(rs.getString("piattaforma"));
 				a.setPrezzo(rs.getDouble("prezzo"));
@@ -63,6 +64,7 @@ public class ArticoloDaoImpl implements ArticoloDao {
 
 			while (rs.next()) {
 				a = new Articolo();
+				a.setId(rs.getInt("int"));
 				a.setNome(rs.getString("nome"));
 				a.setPiattaforma(rs.getString("piattaforma"));
 				a.setPrezzo(rs.getDouble("prezzo"));
@@ -76,6 +78,38 @@ public class ArticoloDaoImpl implements ArticoloDao {
 			db.closeConnection();
 		}
 		return a;
+	}
+
+	@Override
+	public List<Articolo> findbyName(String nome) throws CtrlException {
+		List<Articolo> ret = null;
+		Articolo a = null;
+		DatabaseManager db = null;
+		Connection conn=null;
+		ResultSet rs = null;
+		String query = "SELECT * FROM articoli WHERE nome LIKE %"+nome+"%";
+		try {
+			conn = db.getConnection();
+			Statement st = conn.createStatement();
+			rs = st.executeQuery(query);
+			//ret = new ArrayList();
+			while (rs.next()) {
+				a = new Articolo();
+				a.setId(rs.getInt("int"));
+				a.setNome(rs.getString("nome"));
+				a.setPiattaforma(rs.getString("piattaforma"));
+				a.setPrezzo(rs.getDouble("prezzo"));
+				a.setQuantita(rs.getInt("quantità"));
+				a.setTipo(rs.getString("tipo"));
+				a.setDescrizione(rs.getString("descrizione"));
+			}
+
+		} catch (SQLException e) {
+			e.getMessage();
+		} finally {
+			db.closeConnection();
+		}
+		return ret;
 	}
 
 }
