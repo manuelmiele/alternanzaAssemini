@@ -27,6 +27,26 @@ public class ArticoloServiceImpl implements ArticoloService{
 		
 		return dao.findbyName(nome);
 	}
+
+	@Override
+	public List<Articolo> getArticoloByTipo(String tipo) throws CtrlException {
+
+		return dao.findbyTipo(tipo);
+	}
+
+	@Override
+	public List<Articolo> getArticoloByPrezzo(double prezzo) throws CtrlException {
+
+		return dao.findbyPrezzo(prezzo);
+	
+	}
+
+	@Override
+	public List<Articolo> getArticoloByPiattaforma(String piattaforma) throws CtrlException {
+		
+		return dao.findbyPiattaforma(piattaforma);
+		
+	}
 	
 	
 }

@@ -109,4 +109,100 @@ public class ArticoloDaoImpl implements ArticoloDao {
 		return ret;
 	}
 
+	@Override
+	public List<Articolo> findbyTipo(String tipo) throws CtrlException {
+		List<Articolo> ret = null;
+		Articolo a = null;
+		DatabaseManager db = null;
+		Connection conn=null;
+		ResultSet rs = null;
+		String query = "SELECT * FROM articoli WHERE tipo='"+tipo+"'";
+		try {
+			conn = db.getConnection();
+			Statement st = conn.createStatement();
+			rs = st.executeQuery(query);
+			//ret = new ArrayList();
+			while (rs.next()) {
+				a = new Articolo();
+				a.setId(rs.getInt("int"));
+				a.setNome(rs.getString("nome"));
+				a.setPiattaforma(rs.getString("piattaforma"));
+				a.setPrezzo(rs.getDouble("prezzo"));
+				a.setQuantita(rs.getInt("quantità"));
+				a.setTipo(rs.getString("tipo"));
+				a.setDescrizione(rs.getString("descrizione"));
+			}
+
+		} catch (SQLException e) {
+			e.getMessage();
+		} finally {
+			db.closeConnection();
+		}
+		return ret;
+	}
+
+	@Override
+	public List<Articolo> findbyPiattaforma(String piattaforma) throws CtrlException {
+		List<Articolo> ret = null;
+		Articolo a = null;
+		DatabaseManager db = null;
+		Connection conn=null;
+		ResultSet rs = null;
+		String query = "SELECT * FROM articoli WHERE piattaforma='"+piattaforma+"'";
+		try {
+			conn = db.getConnection();
+			Statement st = conn.createStatement();
+			rs = st.executeQuery(query);
+			//ret = new ArrayList();
+			while (rs.next()) {
+				a = new Articolo();
+				a.setId(rs.getInt("int"));
+				a.setNome(rs.getString("nome"));
+				a.setPiattaforma(rs.getString("piattaforma"));
+				a.setPrezzo(rs.getDouble("prezzo"));
+				a.setQuantita(rs.getInt("quantità"));
+				a.setTipo(rs.getString("tipo"));
+				a.setDescrizione(rs.getString("descrizione"));
+			}
+
+		} catch (SQLException e) {
+			e.getMessage();
+		} finally {
+			db.closeConnection();
+		}
+		return ret;
+	}
+
+	@Override
+	public List<Articolo> findbyPrezzo(double prezzo) throws CtrlException {
+		List<Articolo> ret = null;
+		Articolo a = null;
+		DatabaseManager db = null;
+		Connection conn=null;
+		ResultSet rs = null;
+		String query = "SELECT * FROM articoli WHERE prezzo="+prezzo;
+		try {
+			conn = db.getConnection();
+			Statement st = conn.createStatement();
+			rs = st.executeQuery(query);
+			//ret = new ArrayList();
+			while (rs.next()) {
+				a = new Articolo();
+				a.setId(rs.getInt("int"));
+				a.setNome(rs.getString("nome"));
+				a.setPiattaforma(rs.getString("piattaforma"));
+				a.setPrezzo(rs.getDouble("prezzo"));
+				a.setQuantita(rs.getInt("quantità"));
+				a.setTipo(rs.getString("tipo"));
+				a.setDescrizione(rs.getString("descrizione"));
+			}
+
+		} catch (SQLException e) {
+			e.getMessage();
+		} finally {
+			db.closeConnection();
+		}
+		return ret;
+	}
+
 }
