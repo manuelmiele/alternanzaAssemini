@@ -30,19 +30,33 @@ public class RicercaController {
 	private ArticoloService articoloService;
 	
 	@RequestMapping(value = "/**", method = RequestMethod.GET)
-	public List<Articolo> getArticoloByPrezzo(@RequestParam(value="prezzo", required=true) double prezzo, Model model) throws CtrlException {
-		return articoloService.getArticoloByPrezzo(prezzo);
+	public String getArticoloByPrezzo(@RequestParam(value="prezzo", required=true) double prezzo, Model model) throws CtrlException {
+		List<Articolo> articoli = articoloService.getArticoloByPrezzo(prezzo);
+		model.addAttribute("articoliTrovatiPrezzo", articoli);
+		return "home";
 	}
 	
 	@RequestMapping(value = "/**", method = RequestMethod.GET)
-	public List<Articolo> getArticoloByTipo(@RequestParam(value="tipo", required=true) String tipo, Model model) throws CtrlException {
-		return articoloService.getArticoloByTipo(tipo);
+	public String getArticoloByTipo(@RequestParam(value="tipo", required=true) String tipo, Model model) throws CtrlException {
+		List<Articolo> articoli = articoloService.getArticoloByTipo(tipo);
+		model.addAttribute("articoliTrovatiTipo", articoli);
+		return "home";
 	}
 	
 	@RequestMapping(value = "/**", method = RequestMethod.GET)
-	public List<Articolo> getArticoloByNome(@RequestParam(value="nome", required=true) String nome, Model model) throws CtrlException {
-		return articoloService.getArticoloByNome(nome);
+	public String getArticoloByNome(@RequestParam(value="nome", required=true) String nome, Model model) throws CtrlException {
+		List<Articolo> articoli = articoloService.getArticoloByNome(nome);
+		model.addAttribute("articoliTrovatiNome", articoli);
+		return "home";
 	}
+	
+	@RequestMapping(value = "/**", method = RequestMethod.GET)
+	public String getArticoloByPiattaforma(@RequestParam(value="piattaforma", required=true) String piattaforma, Model model) throws CtrlException {
+		List<Articolo> articoli = articoloService.getArticoloByPiattaforma(piattaforma);
+		model.addAttribute("articoliTrovatiPiattaforma", articoli);
+		return "home";
+	}
+	
 	
 	
 	
