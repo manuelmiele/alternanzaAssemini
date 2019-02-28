@@ -1,14 +1,15 @@
-package org.alternanza.prova.classi;
+package com.alternanza.negozio.entity;
 
 public class Articolo {
 
-	private double (1.2)prezzo;
+	private double prezzo;
 	private int id;
 	private int quantita;
     private String tipo;
     private String nome;
     private String descrizione;
     private String piattaforma;
+    private String copertina;
     
     //costruttore di default
     public Articolo(){
@@ -19,10 +20,11 @@ public class Articolo {
     	nome=" ";
     	descrizione=" ";
     	piattaforma=" ";
+    	copertina=" ";
     }
     
     //costruttore con parametri
-    public Articolo(double prezzo, int id, int quantita, String tipo, String nome, String descrizione, String piattaforma) throws CtrlException{
+    public Articolo(double prezzo, int id, int quantita, String tipo, String nome, String descrizione, String piattaforma,String copertina) throws CtrlException{
     	setPrezzo(prezzo);
     	setId(id);
     	setQuantita(quantita);
@@ -30,6 +32,7 @@ public class Articolo {
     	this.nome=nome;
     	this.descrizione=descrizione;
     	this.piattaforma=piattaforma;
+    	this.copertina=copertina;
     }
     
     //costruttore di copia
@@ -41,10 +44,11 @@ public class Articolo {
     	this.nome=a.nome;
     	this.descrizione=a.descrizione;
     	this.piattaforma=a.piattaforma;
+    	this.copertina=a.copertina;
     }
 
     //getters
-	public int getPrezzo() {
+	public double getPrezzo() {
 		return prezzo;
 	}
 
@@ -74,6 +78,14 @@ public class Articolo {
 
 	public String getPiattaforma() {
 		return piattaforma;
+	}
+	
+	public String getCopertina() {
+		return copertina;
+	}
+	
+	public void setCopertina(String copertina) {
+		this.copertina=copertina;
 	}
 	
 	

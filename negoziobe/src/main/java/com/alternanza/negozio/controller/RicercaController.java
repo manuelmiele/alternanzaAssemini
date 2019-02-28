@@ -20,35 +20,31 @@ import com.alternanza.negozio.service.ArticoloService;
 import com.alternanza.negozio.entity.Articolo;
 import com.alternanza.negozio.entity.CtrlException;
 
-/**
- * Handles requests for the application home page.
- */
 @RestController
-public class HomeController {
+public class RicercaController {
+	
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired
 	private ArticoloService articoloService;
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 * @throws CtrlException 
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public List<Articolo> getAll(Model model) throws CtrlException {
-		return articoloService.getAll();
-	}
-	 
+	
 	@RequestMapping(value = "/**", method = RequestMethod.GET)
-	public String getArticolo(@RequestParam(value="id", required=true) int id, Model model) throws CtrlException {
-		Articolo articolo = articoloService.getArticolo(id);
-		model.addAttribute("articoloTrovato", articolo);
-		return "dettaglio";
-		
+	public List<Articolo> getArticoloByPrezzo(@RequestParam(value="prezzo", required=true) double prezzo, Model model) throws CtrlException {
+		return articoloService.getArticoloByPrezzo(prezzo);
+	}
+	
+	@RequestMapping(value = "/**", method = RequestMethod.GET)
+	public List<Articolo> getArticoloByTipo(@RequestParam(value="tipo", required=true) String tipo, Model model) throws CtrlException {
+		return articoloService.getArticoloByTipo(tipo);
+	}
+	
+	@RequestMapping(value = "/**", method = RequestMethod.GET)
+	public List<Articolo> getArticoloByNome(@RequestParam(value="nome", required=true) String nome, Model model) throws CtrlException {
+		return articoloService.getArticoloByNome(nome);
 	}
 	
 	
 	
-	
-}
 
+}

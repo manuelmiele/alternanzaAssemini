@@ -1,4 +1,4 @@
-package org.alternanza.prova.classi;
+package com.alternanza.negozio.entity;
 
 import java.io.*;
 import java.util.*;
