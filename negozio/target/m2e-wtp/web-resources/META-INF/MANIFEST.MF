@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: springboothelloworldwithJsp
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Matteo
+Implementation-Vendor-Id: com.geekyLearner
+Build-Jdk: 1.8.0_201
+Implementation-URL: http://projects.spring.io/spring-boot/springboothe
+ lloworldwithJsp/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

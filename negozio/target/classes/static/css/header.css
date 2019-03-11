@@ -1,0 +1,9 @@
+.header {    
+          left: 0;    
+          bottom: 0;    
+          width: 100%;    
+          background-image: linear-gradient(to right, #4d0000, #b30000 , #4d0000);    
+          color: black;    
+          text-align: center;    
+          border-bottom: 3px solid black;    
+        }
